@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\Estudiantes\EstudianteReportePdfController;
 use App\Http\Controllers\Estudiantes\EstudiantesInertiaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
@@ -26,5 +26,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::resource('/estudiantes', EstudiantesInertiaController::class);
+
+Route::get('/estudiantes/reporte/pdf', [EstudianteReportePdfController::class, 'index'])->name('estudiantes.reporte.pdf');
 
 require __DIR__.'/auth.php';
